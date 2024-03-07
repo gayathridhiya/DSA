@@ -1,0 +1,21 @@
+.box{
+    border: 2px solid red;
+    padding: 30px;
+}
+.grandparent{
+    background-color: yellow;
+    height: 300px;
+    width: 300px;
+}
+
+.parent{
+    background-color: green;
+    height: 50px;
+    width: 50px;
+}
+
+.child{
+    background-color: aqua;
+    height: 100px;
+    width: 100px;
+}
