@@ -9,7 +9,7 @@ function printName(passedArgs, sec){
         console.log("name" +  this.name + passedArgs + sec)
     }
 printName();
-console.log(this);
+console.log(this); 
 
 let bindedFn = printName.bind(obj); //returns a function // can take objects/context to be binded and arguments as parameter
 bindedFn(); 
