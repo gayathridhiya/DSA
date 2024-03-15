@@ -34,6 +34,7 @@ var maxSubArray = function(nums) {
 //if sum > max => update max
 // if sum<0 -> reset sum
 
+//keep adding, if accumulated sum is greater than max, update. if sum is negative, reset
 
 var maxSubArray = function(nums) {
     let max = Number.NEGATIVE_INFINITY;
