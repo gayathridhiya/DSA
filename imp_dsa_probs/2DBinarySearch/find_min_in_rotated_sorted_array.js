@@ -25,3 +25,31 @@ var findMin = function(arr) {
     }
     return min;
 };
+
+
+//nums =
+// [3,1,2]
+// Output
+// 1
+// Expected
+// 1
+
+// nums =
+// [4,5,6,7,0,1,2]
+// Output
+// 0
+// Expected
+// 0
+
+
+// nums =
+// [3,4,5,1,2]
+// Output
+// 1
+
+
+
+// nums =
+// [5,1,2,3,4]
+// Output
+// 1
