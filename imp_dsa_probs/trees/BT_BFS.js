@@ -49,3 +49,6 @@ var levelOrder = function(root) {
     }
     return result;
 };
+
+
+//TC: O(N) - We are visiting every node only once, SC: O(N/2)=> O(N)  ->In a balanced BT , all leaf nodes will be full and whats the no of LNodes? N/2 
