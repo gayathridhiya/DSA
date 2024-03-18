@@ -25,6 +25,79 @@ class Tree{
         this.preOrder(root.right);
     }
 
+    levelOrder (root) {
+        if(!root){
+            return [];
+        }
+        let q = [];
+        q.push(root);
+    
+        let result=[];
+        
+        while(q.length){
+            let qLen = q.length;
+            let currentLevelElements = [];
+    
+            for(let i=0; i<qLen; i++){
+                let poppedEle = q.shift();
+                currentLevelElements.push(poppedEle.val);
+                if(poppedEle.left !== null){
+                    q.push(poppedEle.left);
+                }
+                if(poppedEle.right !== null){
+                    q.push(poppedEle.right);
+                }
+            }
+    
+            result.push(currentLevelElements);
+            
+        }
+        return result;
+    };
+
+    immediateLevelSuccessor(root, targetNode) {
+        if(!root){
+            return [];
+        }
+        let q = [];
+        q.push(root);
+    
+        let result=[];
+
+        let foundtarget = false;
+        
+        while(q.length){
+            let qLen = q.length;
+            //let currentLevelElements = [];
+    
+            for(let i=0; i<qLen; i++){
+                let poppedEle = q.shift();
+                //currentLevelElements.push(poppedEle.val);
+
+                if(poppedEle.val === targetNode.val){
+                    foundtarget = true;   //do  a Lelev order traversal and break when you found target
+                    break
+                }
+
+                if(poppedEle.left !== null){
+                    q.push(poppedEle.left);
+                }
+                if(poppedEle.right !== null){
+                    q.push(poppedEle.right);
+                }
+                if(foundtarget === true){
+                    console.log(poppedEle.val);
+                    result.push(poppedEle.val);
+                    
+                }
+            }
+    
+            //result.push(currentLevelElements);
+            
+        }
+        return result[0];  // return the first successor
+    };
+
     
 
 }
@@ -51,5 +124,11 @@ node3.right = node7;
 
 let root = tree.getRoot();
 
-tree.preOrder(root);
+//tree.preOrder(root);
+
+//console.log(...tree.levelOrder(root));
+
+console.log(tree.immediateLevelSuccessor(root, node3));
+
+
 
