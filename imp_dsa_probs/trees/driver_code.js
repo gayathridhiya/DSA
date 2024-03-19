@@ -98,6 +98,42 @@ class Tree{
         return result[0];  // return the first successor
     };
 
+    getLevelAndParentOfEveryNode = function(root) {
+        if(!root){
+            return {};
+        }
+        let q = [];
+        q.push(root);
+    
+        let levelDict={};
+        let level = 0;
+    
+        let parent={};
+        
+        while(q.length){
+            let qLen = q.length;
+            level+=1;
+    
+            for(let i=0; i<qLen; i++){
+                let poppedEle = q.shift();
+    
+                levelDict[poppedEle.val]=level;
+    
+                if(poppedEle.left !== null){
+                    q.push(poppedEle.left);
+                    parent[poppedEle.left.val] = poppedEle;
+                }
+    
+                if(poppedEle.right !== null){
+                    q.push(poppedEle.right);
+                    parent[poppedEle.right.val] = poppedEle;
+                }
+            }
+            
+        }
+        return levelDict;
+    };
+
     
 
 }
@@ -128,7 +164,9 @@ let root = tree.getRoot();
 
 //console.log(...tree.levelOrder(root));
 
-console.log(tree.immediateLevelSuccessor(root, node3));
+//console.log(tree.immediateLevelSuccessor(root, node3));
+
+console.log(tree.getLevelAndParentOfEveryNode(root));
 
 
 
