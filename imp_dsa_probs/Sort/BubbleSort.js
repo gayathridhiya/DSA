@@ -10,4 +10,4 @@ function BubbleSort(arr) {
 
 //adjacent swapping
 
-//TC 0(N2), SC O(N)
+//TC 0(N2), SC O(1)
