@@ -31,8 +31,8 @@ function findUniqueSubstring(s){
             right = i+1;
         }else{
             m[s[i]] = 1;
-            res.push(s.substr(left, right-1));
             right+=1;
+            res.push(s.substring(left, right+1));
         }
         i++;
     }
