@@ -51,13 +51,12 @@ class Tree{
 
     findPath(root, target, pathArr=[]){
         if(!root) return pathArr;
-        
+
         if(root && root.val==target) return pathArr;
 
         pathArr.push(root.val);
-        this.findPath(root.left,target, pathArr);
-        this.findPath(root.right,target, pathArr);
-        return pathArr;
+        return this.findPath(root.left,target, pathArr) || this.findPath(root.right,target, pathArr);
+        // return pathArr;
     }
 
 }
@@ -67,7 +66,7 @@ let node1 = new TreeNode(20);
 let node2 = new TreeNode(30);
 let node3 = new TreeNode(40);
 let node4 = new TreeNode(50);
-let node5 = new TreeNode(60);
+//let node5 = new TreeNode(60);
 
 
 //       10
@@ -78,9 +77,9 @@ let tree = new Tree(rootNode);
 let root = tree.getRootNode();
 root.left = node1;
 root.right =  node2;
-node1.right= node3;
-node3.left = node4;
-node3.right = node5;
+node1.left= node3;
+node1.right = node4;
+
 
 
 // tree.inorder(root);
@@ -89,4 +88,4 @@ node3.right = node5;
 
 // console.log(tree.diameterOfBT(root))
 
-console.log(tree.findPath(root, 40))
+console.log(tree.findPath(root, 30))
