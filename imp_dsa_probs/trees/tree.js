@@ -49,14 +49,58 @@ class Tree{
         return self.val === other.val && this.isSameTree(self.left, other.left) && this.isSameTree(self.right, other.right);
     }
 
-    findPath(root, target, pathArr=[]){
-        if(!root) return pathArr;
+    // findPathOfATargetNode(root, target, stack=[]){
+    //     if(!root) { return 0}
+    //     if(root.val===target) {stack.push(root.val); return 1;}
+    //     stack.push(root.val);
+    //     let existsInLeft = this.findPathOfATargetNode(root.left, target, stack);
+    //     let existsInRight = this.findPathOfATargetNode(root.right, target, stack);
+    //     if(!existsInLeft && !existsInRight){
+    //         stack.pop();
+    //     }
+    //     // if(existsInLeft || existsInRight){
+    //     //     return stack;
+    //     // }
+    //     return existsInLeft || existsInRight;
+    // }
 
-        if(root && root.val==target) return pathArr;
+    lowestCommonAncestor = function(root, p, q) {
+        let stack1 = this.findPathOfATargetNode(root,p);
+        let stack2 = this.findPathOfATargetNode(root,q);
+        //console.log(stack1, stack2)
+        let ans;
+        while(stack1.length && stack2.length){
+            let poppedEle1 = stack1.pop();
+            let poppedEle2 = stack1.pop();
+            if(poppedEle1 === poppedEle2){
+                ans = poppedEle1;
+            }
+        }
+        return ans;
+        
+    };
+    findPathOfATargetNode(root, target){
 
-        pathArr.push(root.val);
-        return this.findPath(root.left,target, pathArr) || this.findPath(root.right,target, pathArr);
-        // return pathArr;
+        const stack =[];
+    
+        function findPath(root, target){
+            if(!root) { return 0}
+            if(root.val===target) {stack.push(root.val); return 1;}
+            stack.push(root.val);
+            let existsInLeft = findPath(root.left, target);
+            let existsInRight = findPath(root.right, target);
+            if(!existsInLeft && !existsInRight){
+                stack.pop(); 
+            }
+            // if(existsInLeft || existsInRight){
+            //     return stack;
+            // }
+            return existsInLeft || existsInRight;
+        }
+    
+        //console.log(stack);
+        findPath(root, target);
+        return stack;
     }
 
 }
@@ -88,4 +132,4 @@ node1.right = node4;
 
 // console.log(tree.diameterOfBT(root))
 
-console.log(tree.findPath(root, 30))
+console.log(tree.findPathOfATargetNode(root, 40))
