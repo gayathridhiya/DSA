@@ -101,6 +101,26 @@ class Tree{
         //console.log(stack);
         findPath(root, target);
         return stack;
+    };
+    
+    //This should be used for only BST
+    findKthMinimum(root, k){
+        let res = [];
+
+        function findLeftMostNode(root,flag){
+            if(!root || flag) return;
+    
+            findLeftMostNode(root.left,flag);
+            if(res.length==k){
+                flag = true;
+                return;
+            }
+            res.push(root.val);
+            findLeftMostNode(root.right,flag);
+        }
+
+        findLeftMostNode(root, false);
+        return res.pop();
     }
 
 }
@@ -132,4 +152,6 @@ node1.right = node4;
 
 // console.log(tree.diameterOfBT(root))
 
-console.log(tree.findPathOfATargetNode(root, 40))
+//console.log(tree.findPathOfATargetNode(root, 40))
+
+console.log(tree.findKthMinimum(root,2))
