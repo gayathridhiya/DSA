@@ -18,7 +18,7 @@ function maxPlatformReq(arr, dep){
     let j=0;
 
     while(i<n && j <n){
-        if(arr[i]<=dep[j]){  //if next arrival <= current dep => plat ++ and check for next arr
+        if(arr[i]<=dep[j]){  //if next arrival greater than current dep => plat ++ and check for next arr
             count++; i++;
         }else if(arr[i]>dep[j]){ //else, dec plat (use the same) and look for next departure 
             count--; j++;
