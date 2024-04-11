@@ -18,9 +18,9 @@ function maxPlatformReq(arr, dep){
     let j=0;
 
     while(i<n && j <n){
-        if(arr[i]<=dep[j]){
+        if(arr[i]<=dep[j]){  //if next arrival <= current dep => plat ++ and check for next arr
             count++; i++;
-        }else if(arr[i]>dep[j]){
+        }else if(arr[i]>dep[j]){ //else, dec plat (use the same) and look for next departure 
             count--; j++;
         }
 
@@ -82,3 +82,35 @@ let arr = new Array(900, 940, 950, 1100, 1500, 1800);
 let dep = new Array(910, 1200, 1120, 1130, 1900, 2000);
 
 console.log(maxPlatformReq(arr,dep));
+
+
+
+//brute force
+
+function findPlatform( arr, dep, n) 
+{ 
+  
+    // plat_needed indicates number of platforms 
+    // needed at a time 
+    var plat_needed = 1, result = 1; 
+    var i = 1, j = 0; 
+  
+    // run a nested loop to find overlap 
+    for (var i = 0; i < n; i++) { 
+        // minimum platform 
+        plat_needed = 1; 
+  
+        for (var j = 0; j < n; j++) { 
+            // check for overlap 
+            if(i != j) 
+              if(arr[i] >= arr[j] && dep[j] >= arr[i]) 
+                  plat_needed++; 
+        } 
+  
+        // update result 
+        result = max(result, plat_needed); 
+    } 
+  
+    return result; 
+} 
+  
