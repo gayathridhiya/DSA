@@ -5,7 +5,7 @@ function containsRotation(str1, str2){
         return false;
     }
     let n = str1.length;
-    let firstOccuranceIndex = -1;
+    let firstOccuranceIndex = -1;  
 
     for(let i=0;i<n ; i++){
         if(str1[0] === str2[i]){
