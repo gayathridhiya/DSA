@@ -17,7 +17,7 @@ var longestPalindrome = function(s) {
 
         let expandLen = Math.max(oddPalLen, evenPalLen);
 
-        let start = i - Math.floor((expandLen)/2);
+        let start = i - Math.floor((expandLen-1)/2);
         let end = i + Math.floor(expandLen/2);
 
         res.push(s.substring(start, end+1))
