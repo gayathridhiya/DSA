@@ -1,3 +1,4 @@
+package java;
 class Solution {
     public int minFlips(String S) {
         char[] chars = S.toCharArray();
