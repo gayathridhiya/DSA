@@ -13,7 +13,7 @@ class Solution {
         return r-l-1;
 
     }
-    public String longestPalindrome(String S) {
+    public String longestPalindrome(String S) { 
         char[] charArr = S.toCharArray();
         ArrayList<String> res = new ArrayList<String>();
         for(int i=0;i<charArr.length; i++){
