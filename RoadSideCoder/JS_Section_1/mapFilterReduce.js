@@ -67,19 +67,19 @@ console.log("reduce" , sum);
 //Polyfill for reduce
 
 Array.prototype.customReduce = function customReduce( cb, initialValue){
-    let context = this;
-    let arr = this;
+    // let context = this;
+    // let arr = this;
 
-    let curr_output = initialValue;
+    let accumulator = initialValue;
 
-    for(let i=0;i<arr.length;i++){
-        curr_output = cb(arr[i], curr_output, arr);
+    for(let i=0;i<this.length;i++){
+        accumulator = cb(accumulator, this[i], this);
     }
 
-    return curr_output;
+    return accumulator;
 }
 
-let sum3_1 = arr.customReduce( (curr, acc, idx, arr) => { acc =curr + acc; return acc}, 0);
+let sum3_1 = arr.customReduce( (curr, acc, idx, arr) => { acc = curr + acc; return acc}, 0);
 
 console.log("reduce polyfill" , sum3_1);
 
