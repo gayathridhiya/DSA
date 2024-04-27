@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-class Solution {
+class Solution1 {
 
     public int getPalindromeLen(String S, Integer l, Integer r){
         // char[] charArr = S.toCharArray();
