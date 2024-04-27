@@ -84,4 +84,45 @@ let sum3_1 = arr.customReduce( (curr, acc, idx, arr) => { acc = curr + acc; retu
 console.log("reduce polyfill" , sum3_1);
 
 
+//Op based questions
 
+let students = [
+    {
+        name: "abdcdc", rollNum : 31, marks :80
+    },
+    {
+        name: "aaacnahba", rollNum : 15, marks :69
+    },
+    {
+        name: "mjgewfe", rollNum : 16, marks :35
+    },
+    {
+        name: "kueuyv", rollNum : 7, marks :55
+    }
+]
+
+//Q-1 Return only the name of the students in captial
+
+let names = students.map( e => e.name.toUpperCase());
+
+console.log(names)
+
+//Q-2 Return the details of the students who scored more than 60 marks
+
+let moreThan60MarkStudents = students.filter( e => e.marks > 60).map( e => e.name)
+
+console.log(moreThan60MarkStudents)
+
+//Q3 Sum of marks of all of the students
+
+let sumOfMarksOfAllStudents = students.reduce( (acc, curr) => acc+curr.marks, 0)
+
+console.log(sumOfMarksOfAllStudents)
+
+//Q4 Return total marks for students with marks greater than 60 (after 20 grace marks been added to those who scored less than 60)
+
+let addGraceAndSumForStuLessThan60  = students.filter( e => e.marks < 60 ).map( e => e.marks + 20 ).reduce((acc,curr) => acc+curr, 0)
+
+let sumForStuGreaterThan60 = students.filter( e => e.marks > 60).reduce( (acc,cur) => acc+cur.marks, 0)
+
+console.log("total Sum", addGraceAndSumForStuLessThan60 + sumForStuGreaterThan60)
