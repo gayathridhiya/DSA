@@ -85,9 +85,26 @@ function fn(a,b){
     return a+b;
 }
 let prevTime = Date.now();
-fn(1,2);
-console.log("time ", Date.now() - prevTime)
+// fn(1,2);
+// console.log("time ", Date.now() - prevTime)
 
 //memoized function
 
+function memoizedFn(cb){
+    return function(...args){
+        if(m[args]) {
+            return m[args]
+        }else{
+            m[JSON.stringify(args)] = cb(...args);
+            return m[JSON.stringify(args)];
+        }
+    }
+}
 
+
+let m = memoizedFn(fn);
+console.log(m(1,2));
+console.log("time ", Date.now() - prevTime);
+let nextTime = Date.now()
+m(1,2);
+console.log("time ", Date.now() - nextTime);
