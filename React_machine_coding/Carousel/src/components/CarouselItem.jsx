@@ -24,7 +24,7 @@ function CarouselItem( props) {
                     <h2>{id}, {title}</h2>
                     <img crossorigin src={url} alt="carousel_item" height={600} width={600}/>
                     <br/>
-                    {id !== 1 &&  <button onClick={() => handlePrev(id)}>Previous</button>}
+                    {id !== 1 && <button onClick={() => handlePrev(id)}>Previous</button>}
                     {id !== maxLen && <button onClick={() => handleNext(id)}>Next</button>}
                 </div>)
     }
