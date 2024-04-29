@@ -2,3 +2,15 @@ body {
     padding: 0 15px;
     background: #f5f5ec;
 }
+
+#todoInput {
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+#todoSubmit {
+    padding: 8px 8px;
+    border-radius: 4px;
+    background-color: lightgreen;
+}
