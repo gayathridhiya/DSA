@@ -1,0 +1,21 @@
+.starContent{
+    display: flex;
+}
+
+
+.starContent div{
+    padding: 10px;
+}
+
+.starContent div:hover{
+    transform: scale(1.5);
+}
+
+.starContent div:hover{
+    transform: scale(1.5);
+}
+
+.rated{
+    border: 2px solid red;
+}
+

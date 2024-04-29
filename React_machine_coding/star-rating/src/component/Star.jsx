@@ -25,12 +25,12 @@ export default function Star() {
         <div className='starContainer'>
             <h2>Rate us</h2>
             {   
-                <div>
-                    <div value ="1" onClick = {(e) => handleSelection(e)}>⭐</div>
-                    <div value ="2" onClick = {(e) => handleSelection(e)}>⭐</div>
-                    <div value ="3" onClick = {(e) => handleSelection(e)}>⭐</div>
-                    <div value ="4" onClick = {(e) => handleSelection(e)}>⭐</div>
-                    <div value ="5" onClick = {(e) => handleSelection(e)}>⭐</div>
+                <div className='starContent'>
+                    <div value ="1" className={clicked[1] ? "rated" : null} onClick = {(e) => handleSelection(e)}>⭐</div>
+                    <div value ="2" className={clicked[2] ? "rated" : null} onClick = {(e) => handleSelection(e)}>⭐</div>
+                    <div value ="3" className={clicked[3] ? "rated" : null} onClick = {(e) => handleSelection(e)}>⭐</div>
+                    <div value ="4" className={clicked[4] ? "rated" : null} onClick = {(e) => handleSelection(e)}>⭐</div>
+                    <div value ="5" className={clicked[5] ? "rated" : null} onClick = {(e) => handleSelection(e)}>⭐</div>
                 </div>
             }
             <>you rated {count} stars</>
