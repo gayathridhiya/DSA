@@ -9,7 +9,9 @@ function App() {
 
   const [data, setData] = useState([]);
 
-  const [activeId, setactiveId] = useState(null);
+  const [activeId, setactiveId] = useState(0);
+
+  const [imageLimit, setImageLimit] = useState(2);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/photos?_limit=10')
@@ -21,16 +23,16 @@ function App() {
 
   }, [])
 
-  useEffect(() => {
-    setactiveId(data[0]?.id ?? data[0]?.id)
-  }, [data])
+  // useEffect(() => {
+  //   setactiveId(0)
+  // }, [data])
 
   const handlePrev = (id) => {
-    setactiveId( prev => prev - 1 );
+    setactiveId( prev => prev + 1 );
   }
 
   const handleNext = (id) => {
-    setactiveId( prev => prev +  1);
+    setactiveId( prev => prev -  1);
   }
 
   //photo format:
@@ -50,6 +52,7 @@ function App() {
       activeId = {activeId}
       handleNext = {handleNext}
       handlePrev = {handlePrev}
+      imageLimit = {imageLimit}
      />
     </>
   )
