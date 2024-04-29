@@ -25,6 +25,14 @@ function App() {
     setactiveId(data[0]?.id ?? data[0]?.id)
   }, [data])
 
+  const handlePrev = (id) => {
+    setactiveId( prev => prev - 1 );
+  }
+
+  const handleNext = (id) => {
+    setactiveId( prev => prev +  1);
+  }
+
   //photo format:
     // {
     //   "albumId": 1,
@@ -40,6 +48,8 @@ function App() {
      <Carousel
       data = {data}
       activeId = {activeId}
+      handleNext = {handleNext}
+      handlePrev = {handlePrev}
      />
     </>
   )
