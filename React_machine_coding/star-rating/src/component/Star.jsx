@@ -30,9 +30,8 @@ export default function Star() {
             <h2>Rate us</h2>
   
             <div className='starContent'>
-
                 {
-                    Array.from({length : 5}).map( (curr, idx) => <div value={idx+1} onClick = {() => handleSelection(idx+1)}>⭐</div>)
+                    Array.from({length : 5}).map( (curr, idx) => <div value={idx+1}  className={count >= idx+1 ? "rated" : null} onClick = {() => handleSelection(idx+1)}>⭐</div>)
                 }
                 {/* <div value ="1" className={clicked[1] ? "rated" : null} onClick = {(e) => handleSelection(e)}>⭐</div>
                 <div value ="2" className={clicked[2] ? "rated" : null} onClick = {(e) => handleSelection(e)}>⭐</div>
