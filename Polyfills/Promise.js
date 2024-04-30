@@ -1,9 +1,3 @@
-
-
-//p.then() or p.catch()
-
-// (res, rej) => { either returns res or rej}
-
 function promisePolyfill(executorCallbackFn) {
     let onResolve;
     let onReject;
@@ -65,6 +59,30 @@ function promisePolyfill(executorCallbackFn) {
 
 }
 
-const p = new promisePolyfill( (res, rej) => res(1));
-p.then( a => {console.log(a)} ) //p.then(callback)
+// const p = new promisePolyfill( (res, rej) => res(1));
+// p.then( a => {console.log(a)} ) //p.then(callback)
 
+
+//Promise All polyfills
+
+Promise.allPolyfill = function (promiseArr) {
+    return new Promise( (res, rej) => {
+    let opArr = [];
+    for(let i=0; i<promiseArr.length; i++){
+        if(i===promiseArr.length){
+            res(opArr);
+        }
+        if(promiseArr[i] instanceof Promise){
+            promiseArr[i].then( res => {opArr.push(res)})
+            .catch( err => reject(err));
+        }
+    } })
+}
+
+const p1 = new Promise( res => res(1));
+const p2 = new Promise( res => res(2));
+const p3 = new Promise( res => res(3));
+
+
+console.log("all",Promise.all([p1,p2,p3]));
+console.log("allpolyfill",Promise.allPolyfill([p1,p2,p3]));
